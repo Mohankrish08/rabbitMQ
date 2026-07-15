@@ -1,0 +1,1 @@
+Learning phase of RabbitMQ
