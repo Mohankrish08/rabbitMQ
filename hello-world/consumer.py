@@ -1,7 +1,9 @@
 # importing libraries
 import pika 
 
-connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+cred = pika.PlainCredentials(username='mohankrish08', password='Mk@123')
+
+connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost', port=5672, credentials=cred))
 channel = connection.channel()
 
 channel.queue_declare(queue='hello')
