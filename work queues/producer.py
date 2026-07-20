@@ -1,6 +1,13 @@
 import pika, sys
+import os
+from dotenv import load_dotenv
 
-cred = pika.PlainCredentials(username='mohankrish08', password='Mk@123')
+load_dotenv()
+
+username = os.getenv("RABBITMQ_USERNAME")
+password = os.getenv("RABBITMQ_PASSWORD")
+
+cred = pika.PlainCredentials(username=username, password=password)
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost', port=5672, credentials=cred))
 
